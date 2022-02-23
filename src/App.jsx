@@ -13,6 +13,10 @@ function App() {
       title: 'Card',
       to: '/card',
     },
+    {
+      title: 'List',
+      to: '/list',
+    },
   ];
 
   return (

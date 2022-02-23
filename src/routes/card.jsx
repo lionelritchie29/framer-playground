@@ -81,7 +81,7 @@ export default function CardPage() {
       <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         <AnimatePresence>
           {cards.map((card, idx) => (
-            <Card remove={remove} card={card} key={idx} />
+            <Card remove={remove} card={card} key={card.id} />
           ))}
         </AnimatePresence>
       </ul>
