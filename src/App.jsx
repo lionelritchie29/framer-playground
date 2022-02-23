@@ -1,26 +1,35 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import './App.css';
+import { Link, Outlet } from 'react-router-dom';
 
 function App() {
+  const links = [
+    {
+      title: 'Home',
+      to: '/',
+    },
+    {
+      title: 'Card',
+      to: '/card',
+    },
+  ];
+
   return (
     <div className='w-full h-screen flex justify-center items-center bg-red-200'>
-      <motion.div
-        drag
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.5 }}
-        whileDrag={{
-          rotate: '180deg',
-          borderRadius: '100px',
-        }}
-        whileTap={{
-          scale: 1,
-        }}
-        className='bg-red-500 text-white w-36 h-36 flex cursor-pointer justify-center items-center font-semibold rounded-md'>
-        Red Box
-      </motion.div>
+      <nav className='fixed top-8 left-8'>
+        <ul className='flex space-x-4 font-medium'>
+          {links.map((link) => (
+            <li key={link.title}>
+              <Link className='hover:text-blue-500' to={link.to}>
+                {link.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <Outlet />
     </div>
   );
 }
