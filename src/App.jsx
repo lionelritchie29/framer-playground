@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import './App.css';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 
 function App() {
   const links = [
@@ -22,9 +22,15 @@ function App() {
           <ul className='flex space-x-4 font-medium'>
             {links.map((link) => (
               <li key={link.title}>
-                <Link className='hover:text-blue-500' to={link.to}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? 'text-blue-500 hover:text-blue-500'
+                      : 'hover:text-blue-500'
+                  }
+                  to={link.to}>
                   {link.title}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
