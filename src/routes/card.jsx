@@ -79,7 +79,7 @@ export default function CardPage() {
   return (
     <div className='px-4 lg:px-0 py-8'>
       <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {cards.map((card, idx) => (
             <Card remove={remove} card={card} key={card.id} />
           ))}
